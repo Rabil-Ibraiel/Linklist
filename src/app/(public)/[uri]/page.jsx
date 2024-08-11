@@ -52,6 +52,7 @@ const page = async ({ params }) => {
           <div className="flex w-full flex-col items-center  md:flex-row md:items-stretch gap-2">
             <Image
               src={page.image}
+              alt='Avatar'
               width={140}
               height={140}
               className="rounded-lg overflow-hidden shadow-md"
@@ -77,6 +78,7 @@ const page = async ({ params }) => {
         <div className="flex items-center justify-center gap-2 md:gap-6 mt-14 w-full flex-wrap">
           {page.buttons.map((item) => (
             <UrlOnHoverBtn
+            key={item.key}
               value={item.value}
               icon={buttons.find((btn) => btn.key === item.key).icon}
               itemKey={item.key}
@@ -88,7 +90,7 @@ const page = async ({ params }) => {
           <h2 className="font-bold text-3xl mb-6">Links:</h2>
           <div className="flex flex-col gap-4">
             {page.links.map((item) => (
-              <UrlLinksBtn item={item} uri={page.uri} />
+              <UrlLinksBtn item={item} uri={page.uri} key={item.id}/>
             ))}
           </div>
         </div>

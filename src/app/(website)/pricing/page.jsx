@@ -60,7 +60,7 @@ const page = () => {
       </h3>
       <div className="flex flex-col lg:flex-row w-full lg:h-[calc(100%-5rem)] items-end gap-6 lg:gap-3 justify-between px-6 lg:px-12 pb-8 lg:pb-0">
         {pricingTiers.map((item) => (
-          <div
+          <div key={item.title}
             className={`border-2 rounded-md w-full h-full lg:h-fit lg:w-1/3 p-6 ${
               item.inverse
                 ? "border-white text-white bg-black"
@@ -92,7 +92,7 @@ const page = () => {
 
             <ul className="flex flex-col gap-3 text-lg cursor-default">
               {item.features.map((feature) => (
-                <li
+                <li key={feature}
                   className={`flex items-center text-current ${
                     item.inverse
                       ? "hover:bg-white hover:text-black"

@@ -122,7 +122,7 @@ const page = async () => {
               }
 
               return (
-                <div>
+                <div key={item.subtitle}>
                   <div className="w-full border-2 border-black/25 rounded-3xl my-8"></div>
 
                   <div className="flex flex-col lg:flex-row items-center justify-between">
