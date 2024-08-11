@@ -27,12 +27,12 @@ const HeroForm = ({ session }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col sm:flex-row items-center mt-12"
+      className="flex flex-col sm:flex-row items-center mt-4 lg:mt-12"
     >
       <div className="flex items-center w-full sm:w-auto">
-        <span className="py-4 bg-white pl-4">linklist.to/</span>
+        <span className="py-4 bg-white pl-4 text-black/80">linklist.to/</span>
         <input
-          className="py-4 w-full"
+          className="py-4 w-full font-bold"
           type="text"
           placeholder="username"
           required

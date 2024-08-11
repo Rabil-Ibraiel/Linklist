@@ -7,41 +7,42 @@ import mongoose from "mongoose";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { MdAccountCircle } from "react-icons/md";
 
-
 export default async function Home() {
   const session = await getServerSession(authOptions);
   mongoose.connect(process.env.MONGODB_URI);
   const page = await Page.findOne({ owner: session?.user?.email });
   return (
-    <main>
-      <section className="py-32 px-8 sm:px-12 md:px-16 lg:px-24 md:flex md:gap-12 md:items-center md:h-[calc(100vh-6rem)] md:w-screen md:overflow-hidden">
-        <div id="text-area" className="xl:w-1/2 ">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-4">
+    <main className=" h-[calc(100vh-6rem)] w-screen overflow-x-hidden overflow-y-auto">
+      <section className="p-8 md:flex flex-col lg:flex-row md:gap-12 justify-center items-center w-full h-full bg-gradient-to-tr from-purple-300 to-gray-200">
+        <div
+          id="text-area"
+          className="xl:w-1/2 xl:h-full w-full h-1/2 text-center flex flex-col itme-center justify-center"
+        >
+          <h1 className="mb-4 mainTitle">
             Your one link
             <br />
-            for{" "}
-            <span className="hover:bg-gray-900 hover:text-white hover:rounded-md">
-              EVERYTHING!
-            </span>
+            for EVERYTHING!
           </h1>
-          <h2>
+          <h2 className="font-light lg:font-normal">
             Share your links, Social profiles, Contact info and more on one
             page.
           </h2>
-          {!page ? (
-            <HeroForm session={session} />
-          ) : (
-            <Link href={"/account"}>
-              <p className="bg-blue-500 flex items-center gap-3 text-white w-fit text-xl mt-4 px-6 py-2 rounded-md">
-                <MdAccountCircle className="w-6 h-6"/>
-                My Account
-              </p>
-            </Link>
-          )}
+          <div className="flex justify-center w-full">
+            {!page ? (
+              <HeroForm session={session} />
+            ) : (
+              <Link href={"/account"} className="flex justify-center w-full">
+                <p className="bg-blue-500 flex items-center w-fit gap-3 text-white text-xl mt-4 px-6 py-2 rounded-md">
+                  <MdAccountCircle className="w-6 h-6" />
+                  My Account
+                </p>
+              </Link>
+            )}
+          </div>
         </div>
         <div
           id="img-area"
-          className="hidden xl:block relative w-[40%] h-full animate-[ownBounce_2.5s_ease-in-out_infinite]"
+          className=" relative lg:w-[40%] w-full lg:h-full h-1/2 animate-[ownBounce_2.5s_ease-in-out_infinite] overflow-hidden"
         >
           <Image src={"/undraw_share_link_re_54rx.svg"} alt="" fill />
         </div>

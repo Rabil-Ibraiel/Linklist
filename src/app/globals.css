@@ -40,3 +40,11 @@ input {
 .radio-togglers input[type="radio"]:checked + span{
   @apply bg-white text-blue-500;
 }
+
+.title {
+  @apply text-5xl font-bold mb-10;
+}
+
+.mainTitle {
+  @apply font-extrabold bg-gradient-to-t from-purple-950 to-black text-transparent bg-clip-text tracking-wide uppercase text-center text-5xl lg:text-7xl; 
+}
