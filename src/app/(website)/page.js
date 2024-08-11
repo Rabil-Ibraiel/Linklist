@@ -13,17 +13,13 @@ export default async function Home() {
   const page = await Page.findOne({ owner: session?.user?.email });
   return (
     <main className=" h-[calc(100vh-6rem)] w-screen overflow-x-hidden overflow-y-auto">
-      <section className="p-8 md:flex flex-col lg:flex-row md:gap-12 justify-center items-center w-full h-full bg-gradient-to-tr from-purple-300 to-gray-200">
+      <section className="p-8 pb-0 lg:pb-8 flex flex-col lg:flex-row md:gap-12 justify-center items-center w-full h-full bg-gradient-to-tr from-purple-300 to-gray-200">
         <div
           id="text-area"
           className="xl:w-1/2 xl:h-full w-full h-1/2 text-center flex flex-col itme-center justify-center"
         >
-          <h1 className="mb-4 mainTitle">
-            Your one link
-            <br />
-            for EVERYTHING!
-          </h1>
-          <h2 className="font-light lg:font-normal">
+          <h1 className="mb-4 mainTitle">Your one link for EVERYTHING!</h1>
+          <h2 className="font-light lg:font-normal text-sm md:text-md">
             Share your links, Social profiles, Contact info and more on one
             page.
           </h2>
@@ -42,7 +38,7 @@ export default async function Home() {
         </div>
         <div
           id="img-area"
-          className=" relative lg:w-[40%] w-full lg:h-full h-1/2 animate-[ownBounce_2.5s_ease-in-out_infinite] overflow-hidden"
+          className=" relative xl:w-[40%] xl:h-full w-full h-1/2 animate-[ownBounce_2.5s_ease-in-out_infinite] overflow-hidden"
         >
           <Image src={"/undraw_share_link_re_54rx.svg"} alt="" fill />
         </div>

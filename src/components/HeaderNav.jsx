@@ -38,7 +38,7 @@ const HeaderNav = ({ session }) => {
             <LogoutButton />
           </div>
         ) : (
-          <div className="flex flex-col lg:flex-row gap-6">
+          <div className="flex flex-col items-center lg:flex-row gap-6">
             <Link href={"/login"}>Sign In</Link>
             <Link href={"/login"}>Create Account</Link>
           </div>

@@ -7,7 +7,7 @@ import HeaderNav from "./HeaderNav";
 const Header = async () => {
   const session = await getServerSession(authOptions);
   return (
-    <header className="select-none lg:select-text bg-white text-black h-24 px-12 lg:px-32 mx-auto relative">
+    <header className="select-none lg:select-text bg-white text-black h-24 px-12 lg:px-32 mx-auto relative z-50">
       <div className="flex justify-between items-center h-full w-full ">
         <div className="flex lg:mr-24">
           <Link

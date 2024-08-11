@@ -46,5 +46,5 @@ input {
 }
 
 .mainTitle {
-  @apply font-extrabold bg-gradient-to-t from-purple-950 to-black text-transparent bg-clip-text tracking-wide uppercase text-center text-5xl lg:text-7xl; 
+  @apply font-extrabold bg-gradient-to-t from-purple-950 to-black text-transparent bg-clip-text tracking-wide uppercase text-center text-3xl md:text-5xl lg:text-7xl; 
 }
