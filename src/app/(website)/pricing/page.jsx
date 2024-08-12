@@ -54,13 +54,14 @@ const pricingTiers = [
 const page = () => {
   return (
     <div className="w-screen h-[calc(100vh-6rem)] py-6 overflow-x-hidden overflow-y-auto">
-      <h1 className="mainTitle">pricing</h1>
+      <h1 className="mainTitle text-6xl">pricing</h1>
       <h3 className="text-center text-blue-950 text-sm lg:text-lg uppercase mb-12 lg:mb-0">
         coming soon. <span className="font-bold">its free for now.</span>
       </h3>
       <div className="flex flex-col lg:flex-row w-full lg:h-[calc(100%-5rem)] items-end gap-6 lg:gap-3 justify-between px-6 lg:px-12 pb-8 lg:pb-0">
         {pricingTiers.map((item) => (
-          <div key={item.title}
+          <div
+            key={item.title}
             className={`border-2 rounded-md w-full h-full lg:h-fit lg:w-1/3 p-6 ${
               item.inverse
                 ? "border-white text-white bg-black"
@@ -92,7 +93,8 @@ const page = () => {
 
             <ul className="flex flex-col gap-3 text-lg cursor-default">
               {item.features.map((feature) => (
-                <li key={feature}
+                <li
+                  key={feature}
                   className={`flex items-center text-current ${
                     item.inverse
                       ? "hover:bg-white hover:text-black"

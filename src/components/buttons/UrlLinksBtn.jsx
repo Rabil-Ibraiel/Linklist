@@ -22,7 +22,7 @@ const UrlLinksBtn = ({ item, uri }) => {
       target="_blank"
       href={item.url}
       key={item.id}
-      className="flex items-center gap-2 shadow-md border-2 border-white/60 p-2 rounded-sm"
+      className="flex items-center gap-2 shadow-md border-2 border-white/60 p-2 rounded-sm w-full"
     >
       <span className="text-6xl">
         <IoIosLink />

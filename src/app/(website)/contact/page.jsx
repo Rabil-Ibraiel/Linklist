@@ -6,15 +6,16 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="py-6 overflow-hidden h-[calc(100vh-6rem)] w-screen ">
-      <h1 className="text-6xl lg:text-7xl mainTitle mb-8 lg:mb-0">
-        contact
-      </h1>
-      <div className="h-full w-full flex flex-col lg:flex-row items-center justify-between gap-0 lg:gap-12 px-8 lg:px-24">
-        <div className="w-full h-full lg:w-1/2">
-          <form className="w-full h-full flex flex-col justify-center -mt-12 gap-3">
+    <div className="py-6 overflow-x-hidden overflow-y-auto  h-[calc(100vh-6rem)] w-screen ">
+      <h1 className="text-6xl mainTitle mb-2">contact</h1>
+      <h3 className="text-center text-blue-950 text-sm lg:text-xl uppercase mb-12 xl:mb-0">
+        Send a <span className="font-bold">message.</span>
+      </h3>
+      <div className="mt-12 w-full xl:h-full flex flex-col xl:flex-row items-center justify-between gap-0 xl:gap-12 px-4 md:px-12 lg:px-24">
+        <div className="w-full h-full xl:w-1/2">
+          <form className="w-full h-fit flex flex-col justify-center xl:justify-start  gap-4">
             <label
-              className="text-xl font-extrabold text-black/50 uppercase tracking-wide"
+              className="lg:text-xl font-extrabold text-black/50 uppercase tracking-wide"
               htmlFor="username"
             >
               Username:
@@ -23,11 +24,11 @@ const page = () => {
               type="text"
               id="username"
               required
-              className="text-2xl font-medium py-1 px-3 rounded"
+              className="text-xl lg:text-2xl font-medium py-1 px-3 rounded"
             />
 
             <label
-              className="text-xl font-extrabold text-black/50 uppercase tracking-wide mt-8 lg:mt-2"
+              className="xl:text-xl font-extrabold text-black/50 uppercase tracking-wide xl:mt-4 mt-2"
               htmlFor="email"
             >
               email:
@@ -36,32 +37,32 @@ const page = () => {
               type="email"
               id="email"
               required
-              className="text-2xl font-medium py-1 px-3 rounded"
+              className="text-xl lg:text-2xl font-medium py-1 px-3 rounded"
             />
 
             <label
-              className="text-xl font-extrabold text-black/50 uppercase tracking-wide mt-8 lg:mt-2"
+              className="xl:text-xl font-extrabold text-black/50 uppercase tracking-wide xl:mt-4 mt-2"
               htmlFor="message"
             >
               message:
             </label>
 
             <textarea
-              rows={6}
+              rows={7}
               id="message"
-              className="text-2xl font-medium py-1 px-3 rounded overflow-x-hidden overflow-y-auto"
+              className="text-xl lg:text-2xl font-medium py-1 px-3 rounded overflow-x-hidden overflow-y-auto resize-none"
             ></textarea>
 
             <SubmitButton isPending={true}>Send</SubmitButton>
           </form>
         </div>
 
-        <div className="relative hidden lg:block w-1/2 h-full">
+        <div className="relative hidden xl:block w-1/2 h-full overflow-hidden">
           <Image
             src={"/undraw_online_message_re_3m5v.svg"}
             alt="message"
             fill
-            className="animate-[ownBounce_3s_ease-in-out_infinite] overflow-hidden"
+            className="overflow-hidden"
           />
         </div>
       </div>

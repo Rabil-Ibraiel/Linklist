@@ -3,15 +3,22 @@
 import Link from "next/link";
 import { IoMenu } from "react-icons/io5";
 import LogoutButton from "./buttons/LogoutButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const HeaderNav = ({ session }) => {
   const [open, setOpen] = useState(false);
+  const pathName = usePathname()
+  console.log(pathName)
+  useEffect(() => {
+    setOpen(!open);
+  }, [pathName]);
+
   return (
     <>
       <IoMenu
         className="text-4xl block lg:hidden cursor-pointer"
-        onClick={() => setOpen((prev) => !prev)}
+        onClickCapture={() => setOpen((prev) => !prev)}
       />
 
       <div

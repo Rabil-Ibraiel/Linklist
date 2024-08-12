@@ -78,7 +78,7 @@ const page = async () => {
     <div className="flex flex-col gap-6 pt-4 pb-12">
       <PageSection className="shadow-lg py-2 px-4 my-3">
         <h2 className="title">Profile Views:</h2>
-        <div className="flex items-center justify-between gap-12 px-4 overflow-hidden">
+        <div className="flex items-center justify-between gap-6 md:gap-12 px-4 overflow-hidden">
           <div className="border-2 border-black/40 w-1/2  py-6 rounded-md flex flex-col items-center justify-center text-center">
             <span className="text-4xl lg:text-6xl px-2 font-bold overflow-x-auto overflow-y-hidden w-full">
               {todayViews}

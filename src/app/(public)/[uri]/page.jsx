@@ -45,10 +45,10 @@ const page = async ({ params }) => {
   return (
     <div
       style={{ backgroundColor: page.bgColor }}
-      className="h-screen w-screen overflow-x-hidden text-white  py-12 lg:px-36 md:px-16 px-8 flex justify-center"
+      className="h-screen w-screen overflow-x-hidden text-white   lg:px-36 md:px-16 flex justify-center"
     >
-      <div className="bg-black/20 shadow-lg h-fit w-fit max-w-full pt-6 pb-8 px-12 rounded-md">
-        <div className="w-fit flex items-center justify-end flex-col gap-4">
+      <div className="bg-black/20 shadow-lg h-full w-full md:h-fit md:w-fit max-w-full py-8 md:px-12 px-6 rounded-md ">
+        <div className="w-full flex items-center justify-end flex-col gap-4">
           <div className="flex w-full flex-col items-center  md:flex-row md:items-stretch gap-2">
             <Image
               src={page.image}
@@ -69,13 +69,13 @@ const page = async ({ params }) => {
           </div>
           <div className=" flex flex-col gap-3 my-6 mr-auto">
             <label className="font-bold text-3xl">Bio: </label>
-            <p className="lg:text-xl rounded-sm text-md font-light whitespace-pre-line break-words w-[24rem] md:w-fit max-w-lg text-white/75">
+            <p className="lg:text-xl rounded-sm text-md font-light whitespace-pre-line break-all w-full max-w-xl text-white/75">
               {page.bio}
             </p>
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-2 md:gap-6 mt-14 w-full flex-wrap">
+        <div className="flex items-center justify-center gap-2 md:gap-6 my-10 w-full flex-wrap">
           {page.buttons.map((item) => (
             <UrlOnHoverBtn
             key={item.key}
