@@ -2,13 +2,11 @@
 
 import RadioTogglers from "./formsItems/RadioTogglers";
 import { IoIosColorPalette } from "react-icons/io";
-import { FaRegImage } from "react-icons/fa";
 import Image from "next/image";
 import { IoIosSave } from "react-icons/io";
 import {
   buttonsSave,
   linksSave,
-  saveLinks,
   savePageSetting,
 } from "@/actions/pageSetting";
 import SubmitButton from "../buttons/SubmitButton";
@@ -26,8 +24,6 @@ import { FaYoutube } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
 import { IoIosWarning } from "react-icons/io";
-import { ReactSortable } from "react-sortablejs";
-import { MdDragHandle } from "react-icons/md";
 import PageSection from "../PageSection";
 import { FaCirclePlus } from "react-icons/fa6";
 
@@ -233,13 +229,12 @@ const PageSettingForm = ({ page, user }) => {
       <PageSection>
         <h3 className="title">Buttons:</h3>
         <form action={handleButtonsSave}>
-          <ReactSortable list={activeButtons} setList={setActiveButtons}>
+          <div>
             {activeButtons.map((item) => (
               <div
                 key={item.key}
                 className="flex w-full items-center lg:text-2xl text-lg lg:gap-4 gap-2 pt-4 "
               >
-                <MdDragHandle className="text-3xl md:text-5xl cursor-move" />
                 <div className="font-bold capitalize flex items-center lg:gap-3 gap-1 lg:min-w-44">
                   <span className="text-2xl">
                     {buttons.find((btn) => btn.key === item.key).icon}
@@ -259,11 +254,11 @@ const PageSettingForm = ({ page, user }) => {
                   className="cursor-pointer"
                   onClick={() => removeButtonFromProfile(item)}
                 >
-                  <MdDelete className="lg:text-5xl text-3xl text-red-600" />
+                  <MdDelete className="text-5xl text-red-600" />
                 </span>
               </div>
             ))}
-          </ReactSortable>
+          </div>
           <input
             type="text"
             name="activeButtons"
@@ -318,7 +313,7 @@ const PageSettingForm = ({ page, user }) => {
         </buttons>
         <div className="w-full border-2 border-black/25 rounded-3xl my-8"></div>
         <form action={handleLinksSave}>
-          <ReactSortable
+          <div
             list={links}
             setList={setLinks}
             className="flex flex-col gap-12 lg:gap-8"
@@ -330,10 +325,7 @@ const PageSettingForm = ({ page, user }) => {
                   index % 2 !== 0 && "bg-black/5 py-3 rounded-md"
                 }`}
               >
-                <span className="w-fit">
-                  <MdDragHandle className="text-3xl md:text-5xl " />
-                </span>
-                <div className="flex flex-col items-stretch w-3/4 lg:w-full gap-3">
+                <div className="flex flex-col w-full gap-3">
                   <input
                     type="text"
                     hidden
@@ -364,16 +356,25 @@ const PageSettingForm = ({ page, user }) => {
                     name={"url-" + index}
                     className="p-1 bg-gray-200 font-medium rounded-sm"
                   />
+
+                  <button
+                    onClick={() =>
+                      setLinks((prev) => prev.filter((itm) => itm !== item))
+                    }
+                    className="block md:hidden w-fit self-end px-2 py-1 rounded bg-red-600 text-white mr-2"
+                  >
+                    <MdDelete className="text-3xl"/>
+                  </button>
                 </div>
                 <MdDelete
                   onClick={() =>
                     setLinks((prev) => prev.filter((itm) => itm !== item))
                   }
-                  className="text-3xl md:text-5xl cursor-pointer text-red-600 w-1/4"
+                  className="hidden md:block text-5xl w-fit cursor-pointer text-red-600"
                 />
               </div>
             ))}
-          </ReactSortable>
+          </div>
 
           <input
             type="text"

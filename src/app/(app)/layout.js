@@ -58,7 +58,7 @@ export default async function AppLayout({ children }) {
               </div>
               <AppSideLinks />
               <Link
-                className="flex absolute lg:static top-2 left-2  text-lg mt-auto mb-6 items-center gap-1 bg-blue-500 text-white py-2 px-4 rounded-lg "
+                className="flex absolute lg:static top-2 left-2  text-lg mt-auto mb-6 items-center gap-1 bg-blue-500 text-white p-1 lg:py-2 lg:px-4 rounded-full lg:rounded-lg "
                 href={"/"}
               >
                 <IoCaretBackCircle className="lg:w-5 lg:h-5 h-8 w-8" />

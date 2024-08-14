@@ -2,9 +2,12 @@
 
 import { signIn } from "next-auth/react";
 import { redirect, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const HeroForm = ({ session }) => {
+
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     if (window.localStorage.getItem("desiredUsername")) {
       const username = window.localStorage.getItem("desiredUsername");
@@ -19,7 +22,9 @@ const HeroForm = ({ session }) => {
     const username = e.target.querySelector("input").value;
     window.localStorage.setItem("desiredUsername", username);
     if (session === null) {
+      setLoading(true)
       await signIn("google");
+      setLoading(false)
     } else {
       router.push("/account?desiredUsername=" + username);
     }
@@ -39,8 +44,9 @@ const HeroForm = ({ session }) => {
         />
       </div>
       <button
+        disabled={loading}
         type="submit"
-        className="bg-blue-600 w-full mt-2 sm:mt-0 sm:w-auto py-4 px-6 text-white hover:shadow-md"
+        className="bg-blue-600 disabled:bg-blue-400 disabled:cursor-wait w-full mt-2 sm:mt-0 sm:w-auto py-4 px-6 text-white hover:shadow-md"
       >
         Join for Free
       </button>

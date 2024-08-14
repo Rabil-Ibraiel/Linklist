@@ -8,10 +8,10 @@ import { usePathname } from "next/navigation";
 
 const HeaderNav = ({ session }) => {
   const [open, setOpen] = useState(false);
-  const pathName = usePathname()
-  console.log(pathName)
+  const pathName = usePathname();
+  console.log(pathName);
   useEffect(() => {
-    setOpen(!open);
+    setOpen(false);
   }, [pathName]);
 
   return (
