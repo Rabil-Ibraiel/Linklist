@@ -43,7 +43,7 @@ const page = async ({ params }) => {
   return (
     <div
       style={{ backgroundColor: page.bgColor }}
-      className="py-0 md:py-4 overflow-x-hidden text-white   lg:px-36 md:px-16 flex justify-center"
+      className="py-0 md:py-4 min-h-screen  h-full overflow-x-hidden overflow-y-auto text-white   lg:px-36 md:px-16 flex justify-center"
     >
       <div className="bg-black/20 shadow-lg md:h-fit md:w-fit max-w-full py-8 md:px-12 px-6 rounded-md ">
         <div className="w-full flex items-center justify-end flex-col gap-4">

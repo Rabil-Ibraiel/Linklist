@@ -321,7 +321,7 @@ const PageSettingForm = ({ page, user }) => {
             {links.map((item, index) => (
               <div
                 key={item.id}
-                className={`flex gap-2 lg:gap-6 text-2xl items-center ${
+                className={`flex gap-2 px-2 lg:gap-6 text-2xl items-center ${
                   index % 2 !== 0 && "bg-black/5 py-3 rounded-md"
                 }`}
               >

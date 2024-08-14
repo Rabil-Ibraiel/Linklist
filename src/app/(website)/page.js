@@ -42,7 +42,7 @@ export default async function Home() {
           id="img-area"
           className=" relative xl:w-[40%] xl:h-full w-full h-1/2 animate-[ownBounce_2.5s_ease-in-out_infinite] overflow-hidden"
         >
-          <Image src={"/undraw_share_link_re_54rx.svg"} alt="" fill />
+          <Image src={"/undraw_share_link_re_54rx.svg"} alt="" fill className="overflow-hidden"/>
         </div>
       </section>
     </main>
