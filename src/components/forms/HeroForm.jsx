@@ -37,7 +37,7 @@ const HeroForm = ({ session }) => {
       <div className="flex items-center w-full sm:w-auto">
         <span className="py-4 bg-white pl-4 text-black/80">linklist.to/</span>
         <input
-          className="py-4 w-full font-bold"
+          className="py-4 w-full font-bold lowercase"
           type="text"
           placeholder="username"
           required

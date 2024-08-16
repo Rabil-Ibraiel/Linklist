@@ -23,7 +23,6 @@ const Page = () => {
     }
   }
 
-
   return (
     <div className="py-6 overflow-x-hidden overflow-y-auto  h-[calc(100vh-6rem)] w-screen ">
       <Toaster />

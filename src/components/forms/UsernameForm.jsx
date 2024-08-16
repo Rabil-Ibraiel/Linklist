@@ -22,24 +22,25 @@ const UsernameForm = ({ desiredUsername }) => {
   }
 
   return (
-    <div className="py-32 px-8 sm:px-12 md:px-16 lg:px-24 h-[calc(100vh-6rem)] w-screen flex flex-col   items-center">
-      <h1 className="text-4xl font-bold">
+    <div className="h-[calc(100vh-6rem)] w-screen flex flex-col items-center justify-center">
+      <h1 className="text-4xl font-bold text-center ">
         Grap your{" "}
-        <b className="bg-black text-gray-200 px-4 rounded-md animate-[ownPing_1.5s_ease-in-out_infinite] ">
+        <b className="md:bg-black md:text-gray-200 md:px-4 md:rounded-md md:animate-[ownPing_1.5s_ease-in-out_infinite] ">
           Username
         </b>
       </h1>
       <p className="mt-2 mb-8 text-gray-500">Choose your username</p>
-      <form action={handleSubmit} className="flex flex-col w-96 gap-4">
+      <form action={handleSubmit} className="flex flex-col w-96 gap-4 px-4">
         <input
           type="text"
           name="username"
           defaultValue={desiredUsername}
           required
           placeholder="username"
-          className="h-12 rounded-sm text-center text-xl font-bold hover:border focus:border"
+          className="h-12 rounded text-center text-xl font-bold hover:border focus:border lowercase"
           autoComplete="off"
           autoCorrect="off"
+          spellCheck="false"
         />
         <input
           type="text"
@@ -55,7 +56,7 @@ const UsernameForm = ({ desiredUsername }) => {
         )}
         <SubmitButton>
           Claim your username
-          <GoArrowRight className="text-3xl" />
+          <GoArrowRight className="text-3xl rounded" />
         </SubmitButton>
       </form>
     </div>

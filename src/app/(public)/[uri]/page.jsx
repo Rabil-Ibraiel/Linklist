@@ -19,12 +19,18 @@ import Event from "@/models/Event";
 import UrlLinksBtn from "@/components/buttons/UrlLinksBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import Error404 from "./404";
 
 const page = async ({ params }) => {
   const uri = params.uri;
   await mongoose.connect(process.env.MONGODB_URI);
   const sesstion = await getServerSession(authOptions);
   const page = await Page.findOne({ uri });
+
+  if (!page) {
+    return <Error404 />;
+  }
+
   if (page.owner !== sesstion?.user?.email) {
     await Event.create({ url: page.uri });
   }
@@ -59,18 +65,22 @@ const page = async ({ params }) => {
               <h1 className="capitalize text-5xl  lg:text-7xl font-bold">
                 {page.displayName}
               </h1>
-              <span className="uppercase flex self-center md:self-start items-center gap-1 text-lg text-white/60">
-                <IoLocationSharp />
-                {page.location}
-              </span>
+              {page.location && (
+                <span className="uppercase flex self-center md:self-start items-center gap-1 text-lg text-white/60">
+                  <IoLocationSharp />
+                  {page.location}
+                </span>
+              )}
             </div>
           </div>
-          <div className=" flex flex-col mx-auto w-full gap-3 my-6 mr-auto">
-            <label className="font-bold text-3xl">Bio: </label>
-            <p className="lg:text-xl rounded-sm text-md font-light whitespace-pre-line w-auto text-white/75">
-              {page.bio}
-            </p>
-          </div>
+          {page.bio && (
+            <div className=" flex flex-col mx-auto w-full gap-3 my-6 mr-auto">
+              <label className="font-bold text-3xl">Bio: </label>
+              <p className="lg:text-xl rounded-sm text-md font-light whitespace-pre-line w-auto text-white/75">
+                {page.bio}
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="flex items-center justify-center gap-2 md:gap-6 my-10 w-full flex-wrap">
@@ -84,14 +94,16 @@ const page = async ({ params }) => {
           ))}
         </div>
 
-        <div>
-          <h2 className="font-bold text-3xl mb-6">Links:</h2>
-          <div className="flex flex-col gap-4">
-            {page.links.map((item) => (
-              <UrlLinksBtn item={item} uri={page.uri} key={item.id} />
-            ))}
+        {page.links.length > 0 && (
+          <div>
+            <h2 className="font-bold text-3xl mb-6">Links:</h2>
+            <div className="flex flex-col gap-4">
+              {page.links.map((item) => (
+                <UrlLinksBtn item={item} uri={page.uri} key={item.id} />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

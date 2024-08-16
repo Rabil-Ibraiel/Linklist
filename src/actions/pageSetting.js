@@ -79,7 +79,7 @@ export const linksSave = async (formData) => {
     const url = formData.get("url-" + i);
 
     if (!url?.includes("https://")) {
-      throw new Error("Invalid URL in item number: " + (i + 1));
+      throw new Error("Invalid URL in LINK number: " + (i + 1));
     }
 
     links.push({ id, title, subtitle, url });
@@ -96,7 +96,6 @@ export const linksSave = async (formData) => {
     revalidatePath("/account");
     return true;
   } catch (err) {
-    console.log(err);
-    return false;
+    throw new Error(err);
   }
 };

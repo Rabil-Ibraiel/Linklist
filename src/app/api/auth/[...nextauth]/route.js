@@ -12,6 +12,16 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      // You can add any logic here before redirection if needed
+      return true;
+    },
+    async redirect({ url, baseUrl }) {
+      // Redirect user to home page after sign-in
+      return baseUrl;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);

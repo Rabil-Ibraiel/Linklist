@@ -4,7 +4,7 @@ const PageSchema = new Schema(
   {
     uri: { type: String, required: true, min: 1, unique: true },
     owner: { type: String, required: true },
-    displayName: { type: String, default: "" },
+    displayName: { type: String },
     location: { type: String, default: "" },
     bio: { type: String, default: "" },
     bgType: { type: String, default: "color" },
@@ -14,8 +14,6 @@ const PageSchema = new Schema(
     links: { type: Object, default: [] },
     image: {
       type: String,
-      default:
-        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png",
     },
   },
   { timestamps: true }
